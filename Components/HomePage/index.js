@@ -12,10 +12,7 @@ import styles from "./styles";
 import { getCoffeeShops } from "../../store/actions/coffeeActions";
 
 // Components
-import CoffeeList from "../CoffeeList";
-import CoffeeCart from "../CoffeeCart";
-import CoffeeDetail from "../CoffeeDetail";
-import Login from "../Login";
+import Nav from "../../Navigation";
 
 class HomePage extends Component {
   componentDidMount() {
@@ -26,9 +23,7 @@ class HomePage extends Component {
   render() {
     return (
       <Container style={styles.transparent}>
-        <View style={styles.overlay} />
-        <Header style={styles.transparent} />
-        <CoffeeList />
+        <Nav />
       </Container>
     );
   }

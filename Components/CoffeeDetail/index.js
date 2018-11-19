@@ -20,6 +20,16 @@ import {
 import styles from "./styles";
 
 class CoffeeDetail extends Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      title: navigation.getParam("shop").name,
+      headerRight: (
+        <Button transparent onPress={() => navigation.navigate("Cart")}>
+          <Icon style={{ color: "white" }} name="shopping-cart" type="Entypo" />
+        </Button>
+      )
+    };
+  };
   constructor(props) {
     super(props);
     this.state = {
@@ -41,9 +51,8 @@ class CoffeeDetail extends Component {
   }
 
   render() {
-    const coffeeshops = this.props.coffee.coffeeshops;
-    if (!coffeeshops) return <Content />;
-    const coffeeshop = coffeeshops[0];
+    const coffeeshop = this.props.navigation.getParam("shop", {});
+
     return (
       <Content>
         <List>
